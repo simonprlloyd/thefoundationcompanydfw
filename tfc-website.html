@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Foundation Company — DFW's #1 Foundation Repair Specialists Since 2001</title>
+<meta name="theme-color" content="#0a2540">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@1,500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0a2540;
+    --navy-2: #0f2e4f;
+    --navy-deep: #061829;
+    --orange: #ff6b1a;
+    --orange-2: #ff8847;
+    --orange-deep: #cc4d00;
+    --gold: #f5b800;
+    --cream: #faf6f0;
+    --white: #ffffff;
+    --gray: #6b7c93;
+    --line: rgba(10,37,64,0.1);
+    --shadow: 0 10px 40px -10px rgba(10,37,64,0.2);
+    --shadow-2: 0 20px 60px -20px rgba(10,37,64,0.35);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--navy); overflow-x: hidden; line-height: 1.5; }
+
+  .topbar { background: var(--navy-deep); color: var(--cream); padding: 8px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; font-weight: 500; position: relative; z-index: 101; }
+  .topbar-info { display: flex; gap: 20px; }
+  .topbar-info span { display: flex; align-items: center; gap: 6px; }
+  .topbar-cta { color: var(--gold); font-weight: 700; text-decoration: none; }
+  .topbar-cta:hover { color: var(--orange); }
+
+  .nav { position: sticky; top: 0; z-index: 100; padding: 16px 32px; display: flex; align-items: center; justify-content: space-between; background: var(--white); box-shadow: 0 2px 20px -5px rgba(0,0,0,0.08); border-bottom: 1px solid var(--line); }
+  .logo { display: flex; align-items: center; gap: 12px; font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 0.04em; color: var(--navy); }
+  .logo-mark { width: 44px; height: 44px; background: var(--navy); color: var(--cream); display: grid; place-items: center; border-radius: 8px; font-family: 'Bebas Neue', sans-serif; font-size: 24px; position: relative; overflow: hidden; }
+  .logo-mark::before { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 8px; background: var(--orange); }
+  .logo-mark span { position: relative; z-index: 1; }
+  .logo-text { line-height: 1.05; }
+  .logo-text .sub { font-family: 'Inter', sans-serif; font-size: 10px; letter-spacing: 0.18em; color: var(--gray); font-weight: 700; margin-top: 2px; display: block; }
+
+  .nav-links { display: flex; gap: 4px; align-items: center; }
+  .nav-links a { color: var(--navy); text-decoration: none; font-weight: 600; font-size: 14px; padding: 10px 16px; border-radius: 8px; transition: all 0.2s; }
+  .nav-links a:hover { background: var(--cream); color: var(--orange); }
+  .nav-cta { background: var(--orange) !important; color: var(--white) !important; margin-left: 8px; box-shadow: 0 4px 0 var(--orange-deep); transition: all 0.2s !important; }
+  .nav-cta:hover { background: var(--orange-2) !important; transform: translateY(-2px); box-shadow: 0 6px 0 var(--orange-deep) !important; }
+  .menu-toggle { display: none; background: none; border: 0; cursor: pointer; }
+  .menu-toggle span { display: block; width: 26px; height: 2px; background: var(--navy); margin: 5px 0; transition: 0.3s; }
+
+  .hero { position: relative; min-height: 92vh; padding: 80px 32px 100px; overflow: hidden; background: linear-gradient(135deg, var(--navy) 0%, var(--navy-2) 50%, var(--navy-deep) 100%); color: var(--cream); }
+  .hero::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(circle at 80% 20%, rgba(255,107,26,0.18), transparent 50%), radial-gradient(circle at 20% 80%, rgba(245,184,0,0.1), transparent 50%); pointer-events: none; }
+  .hero::after { content: ''; position: absolute; inset: 0; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Cpath d='M0,100 L80,90 L120,110 L200,95' fill='none' stroke='%23ffffff' stroke-width='0.4' opacity='0.3'/%3E%3Cpath d='M50,0 L60,80 L40,120 L70,200' fill='none' stroke='%23ffffff' stroke-width='0.3' opacity='0.25'/%3E%3Cpath d='M150,0 L140,60 L160,140 L150,200' fill='none' stroke='%23ffffff' stroke-width='0.3' opacity='0.25'/%3E%3C/svg%3E"); opacity: 0.4; pointer-events: none; }
+
+  .hero-grid { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 60px; align-items: center; position: relative; z-index: 2; }
+
+  .hero-eyebrow { display: inline-flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); color: var(--cream); padding: 8px 16px; border-radius: 999px; font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 28px; backdrop-filter: blur(10px); animation: slideup 0.6s ease 0.1s backwards; }
+  .hero-eyebrow .dot { width: 8px; height: 8px; background: var(--orange); border-radius: 50%; box-shadow: 0 0 0 4px rgba(255,107,26,0.35); animation: pulse 1.6s infinite; }
+  @keyframes pulse { 0%,100% { box-shadow: 0 0 0 4px rgba(255,107,26,0.35); } 50% { box-shadow: 0 0 0 8px rgba(255,107,26,0.05); } }
+
+  .hero-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(48px, 7vw, 96px); line-height: 0.95; letter-spacing: 0.005em; margin-bottom: 24px; animation: slideup 0.7s ease 0.2s backwards; }
+  .hero-title .accent { color: var(--orange); position: relative; display: inline-block; }
+  .hero-title .italic { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 500; color: var(--gold); letter-spacing: -0.02em; }
+
+  .hero-sub { font-size: 18px; color: rgba(250,246,240,0.85); max-width: 560px; margin-bottom: 36px; line-height: 1.55; animation: slideup 0.7s ease 0.3s backwards; }
+  .hero-cta-row { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 48px; animation: slideup 0.7s ease 0.4s backwards; }
+
+  .btn { display: inline-flex; align-items: center; gap: 10px; padding: 18px 28px; border-radius: 12px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 15px; letter-spacing: 0.02em; text-decoration: none; cursor: pointer; border: 0; transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1); position: relative; overflow: hidden; }
+  .btn-primary { background: var(--orange); color: var(--white); box-shadow: 0 8px 0 var(--orange-deep), var(--shadow); }
+  .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 11px 0 var(--orange-deep), var(--shadow-2); }
+  .btn-primary:active { transform: translateY(4px); box-shadow: 0 4px 0 var(--orange-deep); }
+  .btn-secondary { background: rgba(255,255,255,0.1); color: var(--white); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.25); box-shadow: var(--shadow); }
+  .btn-secondary:hover { background: rgba(255,255,255,0.15); transform: translateY(-3px); }
+  .btn-arrow { transition: transform 0.2s; }
+  .btn:hover .btn-arrow { transform: translateX(4px); }
+
+  .hero-trust { display: flex; gap: 32px; flex-wrap: wrap; align-items: center; animation: slideup 0.7s ease 0.5s backwards; }
+  .trust-item { display: flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 600; color: rgba(250,246,240,0.85); }
+  .trust-item .icon { width: 32px; height: 32px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; display: grid; place-items: center; color: var(--gold); font-weight: 800; flex-shrink: 0; }
+
+  .hero-visual { position: relative; height: 540px; animation: slideup 0.8s ease 0.3s backwards; }
+  .quote-card { position: absolute; background: var(--white); color: var(--navy); padding: 28px; border-radius: 20px; box-shadow: var(--shadow-2); width: 88%; top: 60px; right: 0; z-index: 3; border: 4px solid var(--cream); }
+  .quote-card-head { display: flex; justify-content: space-between; align-items: start; margin-bottom: 16px; }
+  .quote-tag { background: #d1f5e0; color: #0d7a3a; padding: 4px 12px; border-radius: 999px; font-size: 11px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; }
+  .quote-price { text-align: right; }
+  .quote-price-label { font-size: 10px; color: var(--gray); letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700; }
+  .quote-price-strike { font-size: 16px; color: var(--gray); text-decoration: line-through; font-weight: 600; }
+  .quote-price-now { font-family: 'Bebas Neue', sans-serif; font-size: 36px; color: var(--orange); line-height: 0.9; margin-top: 2px; }
+  .quote-title { font-family: 'Bebas Neue', sans-serif; font-size: 28px; line-height: 1; margin-bottom: 14px; }
+  .quote-features li { list-style: none; padding: 8px 0; border-bottom: 1px dashed var(--line); display: flex; align-items: center; gap: 10px; font-size: 13.5px; font-weight: 500; color: var(--navy-2); }
+  .quote-features li:last-child { border-bottom: none; }
+  .quote-features li::before { content: '✓'; width: 22px; height: 22px; background: var(--orange); color: var(--white); border-radius: 50%; display: grid; place-items: center; font-weight: 800; font-size: 12px; flex-shrink: 0; }
+  .quote-cta { display: block; margin-top: 16px; background: var(--navy); color: var(--white); text-align: center; padding: 13px; border-radius: 10px; text-decoration: none; font-weight: 700; font-size: 14px; transition: all 0.2s; }
+  .quote-cta:hover { background: var(--orange); transform: translateY(-2px); }
+
+  .review-bubble { position: absolute; top: 0; left: 0; background: var(--white); color: var(--navy); padding: 14px 18px; border-radius: 14px; box-shadow: var(--shadow); transform: rotate(-3deg); max-width: 240px; z-index: 4; animation: float 4s ease-in-out infinite; }
+  @keyframes float { 0%,100% { transform: rotate(-3deg) translateY(0); } 50% { transform: rotate(-1deg) translateY(-8px); } }
+  .review-stars { color: var(--gold); font-size: 14px; letter-spacing: 2px; }
+  .review-text { font-size: 13px; font-weight: 600; line-height: 1.4; margin-top: 6px; }
+  .review-by { font-size: 11px; color: var(--gray); margin-top: 6px; font-weight: 600; }
+
+  .badge-bbb { position: absolute; bottom: 0; right: 30px; background: var(--white); color: var(--navy); padding: 16px 20px; border-radius: 14px; box-shadow: var(--shadow-2); transform: rotate(3deg); z-index: 4; border: 3px solid var(--navy); transition: transform 0.4s; }
+  .badge-bbb:hover { transform: rotate(-1deg) translateY(-4px); }
+  .badge-bbb-label { font-size: 11px; letter-spacing: 0.1em; font-weight: 700; color: var(--gray); text-transform: uppercase; }
+  .badge-bbb-rating { font-family: 'Bebas Neue', sans-serif; font-size: 38px; color: var(--orange); line-height: 0.9; margin-top: 2px; }
+  .badge-bbb-sub { font-size: 11px; font-weight: 700; margin-top: 2px; }
+
+  @keyframes slideup { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+
+  .trust-strip { background: var(--navy); color: var(--cream); padding: 24px 0; overflow: hidden; position: relative; border-top: 4px solid var(--orange); }
+  .marquee { display: flex; gap: 60px; white-space: nowrap; animation: scroll 30s linear infinite; }
+  .marquee span { font-family: 'Bebas Neue', sans-serif; font-size: 24px; letter-spacing: 0.04em; display: inline-flex; align-items: center; gap: 60px; color: rgba(250,246,240,0.7); }
+  .marquee span::after { content: '◆'; color: var(--orange); margin-left: 60px; }
+  @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  .section { padding: 100px 32px; position: relative; }
+  .section-inner { max-width: 1280px; margin: 0 auto; }
+  .section-head { display: flex; align-items: end; justify-content: space-between; margin-bottom: 56px; gap: 30px; flex-wrap: wrap; }
+  .section-eyebrow { color: var(--orange); font-weight: 800; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+  .section-eyebrow::before { content: ''; width: 28px; height: 2px; background: var(--orange); }
+  .section-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(40px, 5vw, 64px); line-height: 1; letter-spacing: 0.005em; max-width: 720px; }
+  .section-title .italic { font-family: 'Playfair Display', serif; font-style: italic; color: var(--orange); font-weight: 500; }
+  .section-side { max-width: 380px; color: var(--gray); font-size: 15px; line-height: 1.6; }
+
+  .signs-section { background: var(--cream); position: relative; overflow: hidden; }
+  .signs-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .sign-card { background: var(--white); border: 2px solid var(--navy); border-radius: 16px; padding: 28px; position: relative; overflow: hidden; cursor: pointer; transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); box-shadow: 6px 6px 0 var(--navy); }
+  .sign-card:hover { transform: translate(-4px, -4px); box-shadow: 10px 10px 0 var(--orange); border-color: var(--orange); }
+  .sign-num { font-family: 'Bebas Neue', sans-serif; font-size: 60px; line-height: 0.9; color: var(--orange); margin-bottom: 16px; letter-spacing: 0.02em; }
+  .sign-title { font-family: 'Bebas Neue', sans-serif; font-size: 22px; line-height: 1.05; margin-bottom: 8px; }
+  .sign-desc { color: var(--gray); font-size: 13.5px; line-height: 1.55; }
+
+  .services-bg { background: var(--navy); color: var(--cream); position: relative; overflow: hidden; }
+  .services-bg::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 80% 20%, rgba(255,107,26,0.12), transparent 50%); }
+  .services-bg .section-title { color: var(--cream); }
+  .services-bg .section-side { color: rgba(250,246,240,0.7); }
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; position: relative; z-index: 1; }
+  .service-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 30px; position: relative; overflow: hidden; cursor: pointer; transition: all 0.4s ease; }
+  .service-card::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, var(--orange) 0%, var(--orange-deep) 100%); transform: translateY(100%); transition: transform 0.4s ease; z-index: 0; }
+  .service-card:hover { transform: translateY(-6px); border-color: var(--orange); }
+  .service-card:hover::before { transform: translateY(0); }
+  .service-card > * { position: relative; z-index: 1; }
+  .svc-icon { width: 56px; height: 56px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 12px; display: grid; place-items: center; margin-bottom: 22px; font-size: 26px; transition: all 0.3s; }
+  .service-card:hover .svc-icon { background: rgba(0,0,0,0.2); border-color: rgba(255,255,255,0.25); }
+  .svc-name { font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 0.01em; margin-bottom: 8px; }
+  .svc-desc { color: rgba(250,246,240,0.75); font-size: 13.5px; line-height: 1.55; margin-bottom: 18px; transition: color 0.3s; }
+  .service-card:hover .svc-desc { color: rgba(250,246,240,0.95); }
+  .svc-arrow { display: inline-flex; align-items: center; gap: 8px; font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--orange); transition: all 0.3s; }
+  .service-card:hover .svc-arrow { gap: 14px; color: var(--white); }
+
+  .process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; position: relative; }
+  .process-step { text-align: center; position: relative; }
+  .process-num { width: 80px; height: 80px; background: var(--orange); color: var(--white); border-radius: 50%; display: grid; place-items: center; font-family: 'Bebas Neue', sans-serif; font-size: 38px; margin: 0 auto 20px; box-shadow: 0 8px 0 var(--orange-deep), var(--shadow); position: relative; transition: transform 0.3s; }
+  .process-step:hover .process-num { transform: translateY(-4px) scale(1.05); }
+  .process-step:not(:last-child)::after { content: ''; position: absolute; top: 40px; right: -20px; width: 40px; height: 2px; background: linear-gradient(90deg, var(--orange) 0%, transparent 100%); }
+  .process-title { font-family: 'Bebas Neue', sans-serif; font-size: 22px; margin-bottom: 8px; line-height: 1; }
+  .process-desc { color: var(--gray); font-size: 14px; line-height: 1.5; }
+
+  .why-section { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-2) 100%); color: var(--cream); padding: 100px 32px; position: relative; overflow: hidden; }
+  .why-section::before { content: ''; position: absolute; top: -200px; right: -200px; width: 600px; height: 600px; background: radial-gradient(circle, rgba(255,107,26,0.12), transparent 60%); }
+  .why-grid { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.3fr; gap: 60px; align-items: center; position: relative; z-index: 1; }
+  .why-section .section-title { color: var(--cream); }
+  .why-text { color: rgba(250,246,240,0.85); font-size: 17px; line-height: 1.65; margin: 24px 0 30px; }
+  .check-list { list-style: none; margin-bottom: 30px; }
+  .check-list li { display: flex; align-items: center; gap: 14px; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.1); font-weight: 600; font-size: 15px; }
+  .check-list li:last-child { border-bottom: none; }
+  .check-list li::before { content: '✓'; width: 30px; height: 30px; background: var(--orange); color: var(--white); border-radius: 50%; display: grid; place-items: center; font-weight: 800; flex-shrink: 0; }
+
+  .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .stat-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 18px; padding: 30px; transition: all 0.3s; }
+  .stat-card:hover { background: rgba(255,255,255,0.08); transform: translateY(-4px); border-color: var(--orange); }
+  .stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 64px; color: var(--orange); line-height: 1; letter-spacing: -0.02em; }
+  .stat-num .plus { font-size: 36px; vertical-align: super; }
+  .stat-label { font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em; margin-top: 10px; font-weight: 700; opacity: 0.85; }
+
+  .videos-section { background: var(--cream); padding: 100px 32px; position: relative; overflow: hidden; }
+  .videos-section::before { content: '▶'; position: absolute; bottom: -100px; left: 5%; font-size: 400px; line-height: 1; color: var(--orange); opacity: 0.06; pointer-events: none; }
+  .videos-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; max-width: 1280px; margin: 0 auto; position: relative; z-index: 1; }
+  .video-card { background: var(--white); border: 3px solid var(--navy); border-radius: 20px; overflow: hidden; box-shadow: 6px 6px 0 var(--navy); transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); position: relative; }
+  .video-card:hover { transform: translate(-3px, -3px); box-shadow: 9px 9px 0 var(--orange); border-color: var(--orange); }
+  .video-wrapper { position: relative; width: 100%; aspect-ratio: 9 / 16; background: var(--navy); overflow: hidden; }
+  .video-wrapper video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+  .video-mute {
+    position: absolute;
+    bottom: 12px; right: 12px;
+    width: 38px; height: 38px;
+    background: rgba(0,0,0,0.65);
+    backdrop-filter: blur(10px);
+    border: 1.5px solid rgba(255,255,255,0.3);
+    color: var(--white);
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 16px;
+    display: grid; place-items: center;
+    transition: all 0.2s;
+    z-index: 2;
+  }
+  .video-mute:hover { background: var(--orange); border-color: var(--orange); transform: scale(1.1); }
+  .video-meta { padding: 16px 18px; display: flex; align-items: center; justify-content: space-between; gap: 10px; background: var(--white); border-top: 2px solid var(--navy); }
+  .video-meta-text { flex: 1; min-width: 0; }
+  .video-tag { display: inline-block; background: var(--orange); color: var(--white); padding: 2px 8px; border-radius: 999px; font-size: 9px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 6px; }
+  .video-title { font-family: 'Bebas Neue', sans-serif; font-size: 16px; line-height: 1.05; color: var(--navy); }
+  .video-fb-icon { width: 32px; height: 32px; background: var(--navy); color: var(--orange); border-radius: 8px; display: grid; place-items: center; flex-shrink: 0; font-weight: 900; font-size: 13px; font-family: 'Inter', sans-serif; }
+
+  .testimonials { background: var(--white); padding: 100px 32px; position: relative; overflow: hidden; }
+  .testimonials::before { content: '"'; position: absolute; top: -80px; right: 5%; font-family: 'Playfair Display', serif; font-size: 500px; line-height: 1; color: var(--orange); opacity: 0.08; pointer-events: none; }
+  .test-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .test-card { background: var(--white); border-radius: 16px; padding: 32px; border: 2px solid var(--navy); transition: all 0.3s; box-shadow: 6px 6px 0 var(--navy); }
+  .test-card:hover { transform: translate(-4px, -4px); box-shadow: 10px 10px 0 var(--orange); }
+  .test-stars { color: var(--gold); font-size: 18px; letter-spacing: 3px; margin-bottom: 16px; }
+  .test-text { font-family: 'Playfair Display', serif; font-style: italic; font-size: 18px; line-height: 1.55; color: var(--navy-2); margin-bottom: 24px; }
+  .test-author { display: flex; align-items: center; gap: 14px; }
+  .test-avatar { width: 46px; height: 46px; background: var(--orange); color: var(--white); border-radius: 50%; display: grid; place-items: center; font-family: 'Bebas Neue', sans-serif; font-size: 20px; }
+  .test-name { font-weight: 800; font-size: 15px; }
+  .test-loc { font-size: 12.5px; color: var(--gray); margin-top: 2px; font-weight: 600; }
+
+  .areas-section { padding: 80px 32px; background: var(--white); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .areas-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; margin-top: 40px; }
+  .area-pill { background: var(--cream); border: 1px solid var(--line); padding: 14px 18px; border-radius: 10px; font-size: 13px; font-weight: 600; text-align: center; color: var(--navy); transition: all 0.2s; cursor: pointer; }
+  .area-pill:hover { background: var(--navy); color: var(--white); transform: translateY(-2px); box-shadow: var(--shadow); }
+
+  .cta-section { background: var(--orange); background-image: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.15), transparent 40%), radial-gradient(circle at 80% 80%, rgba(0,0,0,0.15), transparent 50%); color: var(--white); padding: 100px 32px; text-align: center; position: relative; overflow: hidden; }
+  .cta-section::before { content: ''; position: absolute; top: -150px; left: -150px; width: 400px; height: 400px; background: radial-gradient(circle, rgba(255,255,255,0.2), transparent 60%); border-radius: 50%; }
+  .cta-eyebrow { display: inline-block; background: var(--navy); color: var(--white); padding: 8px 18px; border-radius: 999px; font-size: 12px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 24px; }
+  .cta-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(44px, 7vw, 90px); line-height: 0.95; margin-bottom: 24px; letter-spacing: 0.005em; }
+  .cta-title .italic { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 500; }
+  .cta-sub { font-size: 18px; max-width: 640px; margin: 0 auto 36px; opacity: 0.95; line-height: 1.55; }
+  .cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .cta-section .btn-primary { background: var(--white); color: var(--navy); box-shadow: 0 8px 0 var(--navy), var(--shadow); }
+  .cta-section .btn-primary:hover { box-shadow: 0 11px 0 var(--navy), var(--shadow-2); }
+  .cta-section .btn-secondary { background: var(--navy); color: var(--white); border: 0; box-shadow: 0 8px 0 var(--navy-deep), var(--shadow); }
+  .cta-section .btn-secondary:hover { background: var(--navy-deep); box-shadow: 0 11px 0 var(--navy-deep), var(--shadow-2); }
+
+  footer { background: var(--navy-deep); color: var(--cream); padding: 60px 32px 40px; }
+  .footer-grid { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 50px; margin-bottom: 40px; }
+  .footer-brand .logo { color: var(--cream); }
+  .footer-brand p { margin-top: 16px; color: rgba(250,246,240,0.65); line-height: 1.6; font-size: 14px; max-width: 360px; }
+  .footer-col h4 { font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 0.04em; margin-bottom: 18px; color: var(--orange); }
+  .footer-col a, .footer-col p { display: block; color: rgba(250,246,240,0.7); text-decoration: none; padding: 5px 0; font-size: 14px; transition: color 0.2s; }
+  .footer-col a:hover { color: var(--orange); }
+  .footer-bottom { max-width: 1280px; margin: 0 auto; padding-top: 24px; border-top: 1px solid rgba(250,246,240,0.1); display: flex; justify-content: space-between; font-size: 12px; color: rgba(250,246,240,0.4); flex-wrap: wrap; gap: 12px; }
+
+  .sticky-call { position: fixed; bottom: 0; left: 0; right: 0; z-index: 90; background: var(--navy); color: var(--cream); padding: 14px 20px; display: flex; align-items: center; justify-content: space-between; gap: 14px; box-shadow: 0 -10px 30px -10px rgba(0,0,0,0.3); border-top: 3px solid var(--orange); transform: translateY(100%); animation: slidein 0.6s ease 1.5s forwards; }
+  @keyframes slidein { to { transform: translateY(0); } }
+  .sticky-call-info { display: flex; align-items: center; gap: 12px; flex: 1; min-width: 0; }
+  .sticky-call-icon { width: 44px; height: 44px; background: var(--orange); border-radius: 50%; display: grid; place-items: center; flex-shrink: 0; animation: ring 2s ease-in-out infinite; font-size: 22px; }
+  @keyframes ring { 0%,100% { transform: rotate(0deg); } 10% { transform: rotate(-15deg); } 20% { transform: rotate(15deg); } 30% { transform: rotate(-10deg); } 40% { transform: rotate(10deg); } 50% { transform: rotate(0deg); } }
+  .sticky-call-text { min-width: 0; }
+  .sticky-call-label { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.7; font-weight: 700; }
+  .sticky-call-num { font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 0.02em; }
+  .sticky-call-btn { background: var(--orange); color: var(--white); padding: 12px 22px; border-radius: 10px; text-decoration: none; font-weight: 800; font-size: 14px; text-transform: uppercase; letter-spacing: 0.04em; transition: all 0.2s; flex-shrink: 0; box-shadow: 0 5px 0 var(--orange-deep); }
+  .sticky-call-btn:hover { transform: translateY(-2px); box-shadow: 0 7px 0 var(--orange-deep); }
+  .sticky-call-btn:active { transform: translateY(3px); box-shadow: 0 2px 0 var(--orange-deep); }
+
+  .chat-fab { position: fixed; bottom: 90px; right: 24px; z-index: 95; width: 64px; height: 64px; background: var(--orange); border-radius: 50%; border: 3px solid var(--navy); box-shadow: 0 8px 0 var(--navy), var(--shadow-2); cursor: pointer; display: grid; place-items: center; color: var(--white); font-size: 28px; transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); animation: bobble 3s ease-in-out infinite; }
+  @keyframes bobble { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+  .chat-fab:hover { transform: scale(1.1); animation-play-state: paused; }
+  .chat-fab.open { transform: rotate(135deg); background: var(--navy); animation: none; }
+
+  .chat-fab-badge { position: absolute; top: -6px; right: -6px; background: #ff2d20; color: var(--white); width: 26px; height: 26px; border-radius: 50%; border: 3px solid var(--white); display: grid; place-items: center; font-size: 13px; font-weight: 900; animation: badgepulse 1.4s ease-in-out infinite; z-index: 1; }
+  @keyframes badgepulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.18); } }
+  .chat-fab.open .chat-fab-badge { display: none; }
+
+  .chat-tooltip { position: fixed; bottom: 100px; right: 100px; z-index: 94; background: var(--white); color: var(--navy); padding: 14px 18px; border-radius: 16px; border: 2px solid var(--navy); box-shadow: var(--shadow-2); max-width: 250px; font-weight: 600; font-size: 13.5px; animation: tooltipin 0.5s ease 3s backwards; }
+  .chat-tooltip::after { content: ''; position: absolute; bottom: -8px; right: 24px; width: 16px; height: 16px; background: var(--white); border-right: 2px solid var(--navy); border-bottom: 2px solid var(--navy); transform: rotate(45deg); }
+  .chat-tooltip strong { color: var(--orange); }
+  .chat-tooltip-close { position: absolute; top: -10px; left: -10px; width: 24px; height: 24px; background: var(--navy); color: var(--white); border-radius: 50%; border: 0; cursor: pointer; font-size: 14px; line-height: 1; }
+  @keyframes tooltipin { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+  .chat-tooltip.hidden { display: none; }
+
+  .chat-window { position: fixed; bottom: 100px; right: 24px; z-index: 96; width: 380px; max-width: calc(100vw - 32px); height: 540px; max-height: calc(100vh - 200px); background: var(--white); border-radius: 20px; border: 3px solid var(--navy); box-shadow: var(--shadow-2); display: flex; flex-direction: column; overflow: hidden; transform: scale(0) translateY(40px); transform-origin: bottom right; transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1); pointer-events: none; }
+  .chat-window.open { transform: scale(1) translateY(0); pointer-events: auto; }
+  .chat-header { background: var(--navy); color: var(--white); padding: 18px 20px; display: flex; align-items: center; gap: 12px; }
+  .chat-avatar { width: 42px; height: 42px; background: var(--orange); color: var(--white); border-radius: 50%; display: grid; place-items: center; font-family: 'Bebas Neue', sans-serif; font-size: 20px; border: 2px solid var(--white); }
+  .chat-title { font-family: 'Bebas Neue', sans-serif; font-size: 18px; line-height: 1; }
+  .chat-status { font-size: 11px; margin-top: 4px; display: flex; align-items: center; gap: 6px; font-weight: 600; color: rgba(255,255,255,0.85); }
+  .chat-status::before { content: ''; width: 8px; height: 8px; background: #4dff7c; border-radius: 50%; box-shadow: 0 0 0 2px rgba(77,255,124,0.3); }
+
+  .chat-body { flex: 1; padding: 20px; overflow-y: auto; background: var(--cream); display: flex; flex-direction: column; gap: 12px; }
+  .chat-msg { max-width: 80%; padding: 11px 15px; border-radius: 16px; font-size: 14px; line-height: 1.45; animation: msgin 0.3s ease backwards; }
+  .chat-msg.bot { background: var(--white); border: 1px solid var(--line); border-bottom-left-radius: 4px; align-self: flex-start; color: var(--navy-2); }
+  .chat-msg.user { background: var(--orange); color: var(--white); border-bottom-right-radius: 4px; align-self: flex-end; font-weight: 600; }
+  @keyframes msgin { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+  .chat-quick { padding: 12px 16px 0; display: flex; flex-wrap: wrap; gap: 8px; }
+  .chat-chip { background: var(--white); border: 2px solid var(--navy); border-radius: 999px; padding: 7px 14px; font-size: 12.5px; font-weight: 700; cursor: pointer; transition: all 0.2s; color: var(--navy); }
+  .chat-chip:hover { background: var(--orange); color: var(--white); border-color: var(--orange); transform: translateY(-2px); }
+
+  .chat-input-row { padding: 14px 16px 16px; border-top: 2px solid var(--line); display: flex; gap: 8px; background: var(--white); }
+  .chat-input { flex: 1; padding: 12px 16px; border-radius: 999px; border: 2px solid var(--navy); font-family: inherit; font-size: 14px; outline: none; background: var(--white); color: var(--navy); }
+  .chat-input:focus { border-color: var(--orange); }
+  .chat-send { width: 44px; height: 44px; background: var(--orange); color: var(--white); border: 2px solid var(--navy); border-radius: 50%; cursor: pointer; font-size: 18px; transition: all 0.2s; }
+  .chat-send:hover { transform: scale(1.08); }
+
+  .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  @media (max-width: 900px) {
+    .topbar { padding: 8px 16px; font-size: 11px; }
+    .topbar-info { gap: 10px; flex-wrap: wrap; }
+    .nav { padding: 12px 16px; }
+    .nav-links a:not(.nav-cta) { display: none; }
+    .nav-cta { padding: 10px 14px !important; font-size: 13px; }
+    .menu-toggle { display: block; }
+    .logo { font-size: 18px; gap: 8px; }
+    .logo-mark { width: 38px; height: 38px; font-size: 20px; }
+    .logo-text .sub { font-size: 8.5px; }
+    .hero { padding: 50px 18px 80px; min-height: auto; }
+    .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+    .hero-visual { height: auto; min-height: 460px; order: -1; }
+    .hero-trust { gap: 16px; }
+    .trust-item { font-size: 12px; }
+    .review-bubble { left: 0; max-width: 200px; padding: 11px 14px; }
+    .review-text { font-size: 12px; }
+    .quote-card { padding: 22px; top: 50px; }
+    .badge-bbb { padding: 12px 16px; bottom: -16px; right: 10px; }
+    .badge-bbb-rating { font-size: 30px; }
+    .marquee span { font-size: 20px; }
+    .section { padding: 70px 18px; }
+    .section-head { flex-direction: column; align-items: flex-start; gap: 16px; margin-bottom: 36px; }
+    .signs-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+    .sign-card { padding: 22px; box-shadow: 4px 4px 0 var(--navy); }
+    .sign-num { font-size: 48px; }
+    .sign-title { font-size: 18px; }
+    .services-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+    .service-card { padding: 22px; }
+    .svc-name { font-size: 18px; }
+    .svc-desc { font-size: 13px; }
+    .process-grid { grid-template-columns: 1fr 1fr; gap: 30px 16px; }
+    .process-step:not(:last-child)::after { display: none; }
+    .why-section { padding: 70px 18px; }
+    .why-grid { grid-template-columns: 1fr; gap: 36px; }
+    .stat-num { font-size: 48px; }
+    .stat-num .plus { font-size: 28px; }
+    .testimonials { padding: 70px 18px; }
+    .videos-section { padding: 60px 18px; }
+    .videos-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+    .video-card { box-shadow: 4px 4px 0 var(--navy); border-radius: 16px; }
+    .video-card:hover { box-shadow: 6px 6px 0 var(--orange); }
+    .video-meta { padding: 12px 14px; }
+    .video-title { font-size: 14px; }
+    .video-tag { font-size: 8.5px; }
+    .video-fb-icon { width: 28px; height: 28px; font-size: 11px; }
+    .video-mute { width: 32px; height: 32px; font-size: 13px; bottom: 8px; right: 8px; }
+    .test-grid { grid-template-columns: 1fr; gap: 16px; }
+    .test-card { padding: 24px; box-shadow: 4px 4px 0 var(--navy); }
+    .test-text { font-size: 16px; }
+    .areas-grid { grid-template-columns: 1fr 1fr 1fr; }
+    .cta-section { padding: 70px 18px; }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 30px; }
+    .footer-brand { grid-column: span 2; }
+    .sticky-call { padding: 10px 14px; gap: 10px; }
+    .sticky-call-icon { width: 38px; height: 38px; font-size: 18px; }
+    .sticky-call-num { font-size: 17px; }
+    .sticky-call-label { font-size: 9px; }
+    .sticky-call-btn { padding: 10px 16px; font-size: 12.5px; }
+    .chat-fab { width: 56px; height: 56px; font-size: 24px; bottom: 84px; right: 16px; }
+    .chat-tooltip { right: 80px; bottom: 92px; max-width: 200px; font-size: 12.5px; padding: 11px 14px; }
+    .chat-window { bottom: 96px; right: 16px; height: 460px; }
+  }
+  @media (max-width: 480px) {
+    .topbar-info { display: none; }
+    .topbar { justify-content: center; }
+    .hero-title { font-size: 44px; }
+    .hero-sub { font-size: 16px; }
+    .btn { padding: 14px 20px; font-size: 14px; }
+    .signs-grid { grid-template-columns: 1fr; }
+    .services-grid { grid-template-columns: 1fr; }
+    .process-grid { grid-template-columns: 1fr; }
+    .stats-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+    .stat-card { padding: 22px; }
+    .areas-grid { grid-template-columns: 1fr 1fr; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .footer-brand { grid-column: span 1; }
+    .footer-bottom { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-info">
+    <span>📍 Dallas, TX</span>
+    <span>⏰ Mon-Fri 8AM-6PM</span>
+    <span>⭐ A+ BBB Accredited</span>
+  </div>
+  <a href="tel:2148532113" class="topbar-cta">📞 (214) 853-2113 · Free Inspection</a>
+</div>
+
+<nav class="nav" id="nav">
+  <div class="logo">
+    <div class="logo-mark"><span>TFC</span></div>
+    <div class="logo-text">The Foundation Company<span class="sub">Dallas · Fort Worth · Since 2001</span></div>
+  </div>
+  <div class="nav-links">
+    <a href="#signs">Warning Signs</a>
+    <a href="#services">Services</a>
+    <a href="#process">Our Process</a>
+    <a href="#videos">Videos</a>
+    <a href="#why">Why TFC</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#contact" class="nav-cta">Free Inspection</a>
+  </div>
+  <button class="menu-toggle" aria-label="menu"><span></span><span></span><span></span></button>
+</nav>
+
+<section class="hero">
+  <div class="hero-grid">
+    <div class="hero-content">
+      <div class="hero-eyebrow"><span class="dot"></span> DFW's Most Trusted Foundation Specialists</div>
+      <h1 class="hero-title">
+        Crooked floors?<br>
+        Cracking walls?<br>
+        <span class="accent">We fix that.</span><br>
+        <span class="italic">For good.</span>
+      </h1>
+      <p class="hero-sub">Dallas–Fort Worth's most trusted foundation repair company since 2001. Licensed structural engineers approve every plan. Lifetime transferable warranty. Free $349-value inspection — no obligation.</p>
+      <div class="hero-cta-row">
+        <a href="tel:2148532113" class="btn btn-primary">📞 Get Free Inspection <span class="btn-arrow">→</span></a>
+        <a href="#signs" class="btn btn-secondary">See Warning Signs</a>
+      </div>
+      <div class="hero-trust">
+        <div class="trust-item"><div class="icon">A+</div>BBB Accredited</div>
+        <div class="trust-item"><div class="icon">∞</div>Lifetime Warranty</div>
+        <div class="trust-item"><div class="icon">22</div>Years in DFW</div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="review-bubble">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">"Best foundation company in Dallas. Period."</div>
+        <div class="review-by">— David W., Plano</div>
+      </div>
+      <div class="quote-card">
+        <div class="quote-card-head">
+          <span class="quote-tag">Limited Time</span>
+          <div class="quote-price">
+            <div class="quote-price-label">Inspection</div>
+            <div class="quote-price-strike">$349</div>
+            <div class="quote-price-now">FREE</div>
+          </div>
+        </div>
+        <div class="quote-title">Free Foundation Inspection</div>
+        <ul class="quote-features">
+          <li>Full property walkthrough</li>
+          <li>Structural engineer review</li>
+          <li>Honest written report</li>
+          <li>No-pressure, no-obligation</li>
+        </ul>
+        <a href="tel:2148532113" class="quote-cta">Schedule Mine Now →</a>
+      </div>
+      <div class="badge-bbb">
+        <div class="badge-bbb-label">BBB Rating</div>
+        <div class="badge-bbb-rating">A+</div>
+        <div class="badge-bbb-sub">Since 2001</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="trust-strip">
+  <div class="marquee">
+    <span>Free Inspection</span><span>Lifetime Warranty</span><span>Engineer Approved</span><span>22 Years in DFW</span><span>Slab + Pier & Beam</span><span>Same-Day Estimates</span><span>Licensed & Insured</span><span>A+ BBB Rating</span>
+    <span>Free Inspection</span><span>Lifetime Warranty</span><span>Engineer Approved</span><span>22 Years in DFW</span><span>Slab + Pier & Beam</span><span>Same-Day Estimates</span><span>Licensed & Insured</span><span>A+ BBB Rating</span>
+  </div>
+</section>
+
+<section class="section signs-section" id="signs">
+  <div class="section-inner">
+    <div class="section-head reveal">
+      <div>
+        <div class="section-eyebrow">Warning Signs</div>
+        <h2 class="section-title">Is your foundation<br><span class="italic">trying to tell you something?</span></h2>
+      </div>
+      <p class="section-side">Texas clay soil expands and shrinks with the weather — and it pulls your home with it. Catching these signs early saves you tens of thousands.</p>
+    </div>
+    <div class="signs-grid">
+      <div class="sign-card reveal">
+        <div class="sign-num">01</div>
+        <h3 class="sign-title">Cracks in Walls<br>or Ceilings</h3>
+        <p class="sign-desc">Especially diagonal cracks above doors and windows — the classic foundation movement signal.</p>
+      </div>
+      <div class="sign-card reveal">
+        <div class="sign-num">02</div>
+        <h3 class="sign-title">Sticking Doors<br>& Windows</h3>
+        <p class="sign-desc">If they used to open fine and now they fight you, your frame has shifted with the foundation.</p>
+      </div>
+      <div class="sign-card reveal">
+        <div class="sign-num">03</div>
+        <h3 class="sign-title">Sloped or Uneven<br>Floors</h3>
+        <p class="sign-desc">Drop a marble — does it roll? That's gravity telling you what your eyes can't.</p>
+      </div>
+      <div class="sign-card reveal">
+        <div class="sign-num">04</div>
+        <h3 class="sign-title">Gaps Around<br>Window Frames</h3>
+        <p class="sign-desc">Visible separation between trim and walls means the structure is pulling apart.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section services-bg" id="services">
+  <div class="section-inner">
+    <div class="section-head reveal">
+      <div>
+        <div class="section-eyebrow">What We Do</div>
+        <h2 class="section-title">Complete foundation solutions<br><span class="italic">— not just patches.</span></h2>
+      </div>
+      <p class="section-side">From diagnosis to lifetime warranty, we do it all in-house with structural engineer oversight.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal"><div class="svc-icon">🏠</div><div class="svc-name">Residential Foundation Repair</div><p class="svc-desc">Slab and pier & beam homes leveled and stabilized with engineered pier systems built to last.</p><span class="svc-arrow">Learn more →</span></div>
+      <div class="service-card reveal"><div class="svc-icon">🏢</div><div class="svc-name">Commercial Foundation Repair</div><p class="svc-desc">Office buildings, retail, warehouses — we minimize disruption and maximize structural integrity.</p><span class="svc-arrow">Learn more →</span></div>
+      <div class="service-card reveal"><div class="svc-icon">⚓</div><div class="svc-name">Pier Systems</div><p class="svc-desc">Concrete pressed pilings, steel piers, and helical piers — engineered for your specific soil conditions.</p><span class="svc-arrow">Learn more →</span></div>
+      <div class="service-card reveal"><div class="svc-icon">💧</div><div class="svc-name">Drainage Solutions</div><p class="svc-desc">French drains, surface drains, sump systems — keeping water away from your foundation, where it belongs.</p><span class="svc-arrow">Learn more →</span></div>
+      <div class="service-card reveal"><div class="svc-icon">🌳</div><div class="svc-name">Root Barriers</div><p class="svc-desc">Stop nearby trees from drying out the soil under your home and pulling your foundation apart.</p><span class="svc-arrow">Learn more →</span></div>
+      <div class="service-card reveal"><div class="svc-icon">🔧</div><div class="svc-name">Slab Tunneling</div><p class="svc-desc">Underground access for plumbing repairs without ripping up your floors. Cleanest way to do it.</p><span class="svc-arrow">Learn more →</span></div>
+      <div class="service-card reveal"><div class="svc-icon">🧱</div><div class="svc-name">Retaining Walls</div><p class="svc-desc">Engineered walls that control erosion, support uneven yards, and protect your foundation.</p><span class="svc-arrow">Learn more →</span></div>
+      <div class="service-card reveal"><div class="svc-icon">🏛️</div><div class="svc-name">Leaning Chimney Repair</div><p class="svc-desc">Chimneys pull away from homes when foundations shift — we straighten and reset them safely.</p><span class="svc-arrow">Learn more →</span></div>
+      <div class="service-card reveal"><div class="svc-icon">🌬️</div><div class="svc-name">Crawl Space Ventilation</div><p class="svc-desc">Reduce moisture and mold under your home — protect both your foundation and your air quality.</p><span class="svc-arrow">Learn more →</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="process">
+  <div class="section-inner">
+    <div class="section-head reveal">
+      <div>
+        <div class="section-eyebrow">How It Works</div>
+        <h2 class="section-title">Honest, transparent,<br><span class="italic">engineer-approved.</span></h2>
+      </div>
+      <p class="section-side">No high-pressure sales. No hidden fees. Just a clear process that ends with a foundation that holds.</p>
+    </div>
+    <div class="process-grid">
+      <div class="process-step reveal"><div class="process-num">1</div><h3 class="process-title">Free Inspection</h3><p class="process-desc">We come out, walk every inch of your home, and give you a written diagnosis. No charge, no pressure.</p></div>
+      <div class="process-step reveal"><div class="process-num">2</div><h3 class="process-title">Engineer Review</h3><p class="process-desc">An independent structural engineer reviews and approves our repair plan before we touch your home.</p></div>
+      <div class="process-step reveal"><div class="process-num">3</div><h3 class="process-title">Repair Done Right</h3><p class="process-desc">Our crew installs the pier system or solution. Most projects done in 1-3 days with minimal disruption.</p></div>
+      <div class="process-step reveal"><div class="process-num">4</div><h3 class="process-title">Lifetime Warranty</h3><p class="process-desc">Engineer returns to inspect the finished work. You get a transferable lifetime warranty in writing.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="why-section" id="why">
+  <div class="why-grid">
+    <div class="reveal">
+      <div class="section-eyebrow">Why TFC</div>
+      <h2 class="section-title">22 years of homes<br>standing strong<br><span class="italic">across DFW.</span></h2>
+      <p class="why-text">Most foundation companies show up, slap in some piers, and disappear. We've been doing this since 2001 — same owner, same standards, same warranty. When you call us, you're calling a Dallas family business that lives and works in the neighborhoods we serve.</p>
+      <ul class="check-list">
+        <li>Independent structural engineer on every job</li>
+        <li>Lifetime transferable warranty in writing</li>
+        <li>A+ BBB rated since 2006</li>
+        <li>Free $349-value foundation inspection</li>
+        <li>22 years serving the DFW Metroplex</li>
+      </ul>
+      <a href="tel:2148532113" class="btn btn-primary">📞 Call (214) 853-2113</a>
+    </div>
+    <div class="stats-grid">
+      <div class="stat-card reveal"><div class="stat-num"><span class="cnum" data-target="22">0</span><span class="plus">+</span></div><div class="stat-label">Years in Business</div></div>
+      <div class="stat-card reveal"><div class="stat-num"><span class="cnum" data-target="5000">0</span><span class="plus">+</span></div><div class="stat-label">Foundations Repaired</div></div>
+      <div class="stat-card reveal"><div class="stat-num"><span class="cnum" data-target="100">0</span>%</div><div class="stat-label">Engineer Approved</div></div>
+      <div class="stat-card reveal"><div class="stat-num">A<span class="plus">+</span></div><div class="stat-label">BBB Rating</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="videos-section" id="videos">
+  <div class="section-inner">
+    <div class="section-head reveal">
+      <div>
+        <div class="section-eyebrow">See It In Action</div>
+        <h2 class="section-title">Real DFW jobs.<br><span class="italic">Real foundations saved.</span></h2>
+      </div>
+      <p class="section-side">Watch our crew at work — engineered piers, clean installs, and the craftsmanship that earned us 22 years of trust.</p>
+    </div>
+
+    <div class="videos-grid reveal">
+
+      <div class="video-card">
+        <div class="video-wrapper">
+          <video autoplay muted loop playsinline preload="metadata" poster="">
+            <source src="https://res.cloudinary.com/dycutbccb/video/upload/v1778198037/AQMDMI0nNL01BxzRZ8d2nCPU0JGfVGpPOqTF-4FKePBFp457ZBax74KyExpR8i9rgGPAu-wCP8QqnHvFlFaKJcw6WObFqbTePKdVbMy_hcrszw_tsek1n.mp4" type="video/mp4">
+          </video>
+          <button class="video-mute" aria-label="Toggle sound">🔇</button>
+        </div>
+        <div class="video-meta">
+          <div class="video-meta-text">
+            <span class="video-tag">Featured</span>
+            <div class="video-title">Foundation Repair in Action</div>
+          </div>
+          <div class="video-fb-icon">▶</div>
+        </div>
+      </div>
+
+      <div class="video-card">
+        <div class="video-wrapper">
+          <video autoplay muted loop playsinline preload="metadata" poster="">
+            <source src="https://res.cloudinary.com/dycutbccb/video/upload/v1778198094/AQNpdJApg9OOL59iYNVYtPQ6psRpAL-TZFfY5R5THbGC0NRlGrbyufTdlnfLtSCyMAMQsQdDPplldeqJl-JpC32916sqOmK0-Ok8xBB4mtsd8A_zo4f0k.mp4" type="video/mp4">
+          </video>
+          <button class="video-mute" aria-label="Toggle sound">🔇</button>
+        </div>
+        <div class="video-meta">
+          <div class="video-meta-text">
+            <span class="video-tag">Pier Install</span>
+            <div class="video-title">Engineered Pier System</div>
+          </div>
+          <div class="video-fb-icon">▶</div>
+        </div>
+      </div>
+
+      <div class="video-card">
+        <div class="video-wrapper">
+          <video autoplay muted loop playsinline preload="metadata" poster="">
+            <source src="https://res.cloudinary.com/dycutbccb/video/upload/v1778198145/AQPMAjzTn1pLdYzrn12cNMdOxVvUwgNV1kdnnBSGL-EwDtslSM5WFRaxXLcxGCEUgKsEg5tSd6Sd1OVh_U9d7Q4tl29vRC13sWgWBeD5BtKTrQ_yfgf46.mp4" type="video/mp4">
+          </video>
+          <button class="video-mute" aria-label="Toggle sound">🔇</button>
+        </div>
+        <div class="video-meta">
+          <div class="video-meta-text">
+            <span class="video-tag">On The Job</span>
+            <div class="video-title">Crew Working Live</div>
+          </div>
+          <div class="video-fb-icon">▶</div>
+        </div>
+      </div>
+
+      <div class="video-card">
+        <div class="video-wrapper">
+          <video autoplay muted loop playsinline preload="metadata" poster="">
+            <source src="https://res.cloudinary.com/dycutbccb/video/upload/v1778198202/AQO4IRpr8eKqNDnD8BJcXSw4YlmpC28wviev8m4gCKULN5ulb4rfw0LpM4lcxeSypNZ2JYj2u02YCW_l3OIe61tykmCectnuV-pq0Yxs9g7GWw_kofc5o.mp4" type="video/mp4">
+          </video>
+          <button class="video-mute" aria-label="Toggle sound">🔇</button>
+        </div>
+        <div class="video-meta">
+          <div class="video-meta-text">
+            <span class="video-tag">Recent Job</span>
+            <div class="video-title">Foundation Stabilization</div>
+          </div>
+          <div class="video-fb-icon">▶</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="text-align: center; margin-top: 40px;">
+      <a href="https://www.facebook.com/profile.php?id=100064015088967" target="_blank" class="btn btn-primary" style="background: var(--navy); color: var(--white); box-shadow: 0 8px 0 var(--navy-deep), var(--shadow);">
+        See More Videos on Facebook <span class="btn-arrow">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials" id="reviews">
+  <div class="section-inner">
+    <div class="section-head reveal">
+      <div>
+        <div class="section-eyebrow">Real Reviews</div>
+        <h2 class="section-title">DFW homeowners<br><span class="italic">trust us with their biggest investment.</span></h2>
+      </div>
+    </div>
+    <div class="test-grid">
+      <div class="test-card reveal">
+        <div class="test-stars">★★★★★</div>
+        <p class="test-text">"Luis and his team showed up on time, explained every step, and finished my piers a day early. House feels rock solid now."</p>
+        <div class="test-author"><div class="test-avatar">D</div><div><div class="test-name">David W.</div><div class="test-loc">Plano · Pier Installation</div></div></div>
+      </div>
+      <div class="test-card reveal">
+        <div class="test-stars">★★★★★</div>
+        <p class="test-text">"After three other companies wanted to charge me $30K, TFC fixed it for $12K and put it in writing with a lifetime warranty. No regrets."</p>
+        <div class="test-author"><div class="test-avatar">M</div><div><div class="test-name">Maria S.</div><div class="test-loc">Fort Worth · Slab Repair</div></div></div>
+      </div>
+      <div class="test-card reveal">
+        <div class="test-stars">★★★★★</div>
+        <p class="test-text">"Free inspection turned into a clear plan, structural engineer signed off, work was clean. These guys are pros — and honest about it."</p>
+        <div class="test-author"><div class="test-avatar">R</div><div><div class="test-name">Robert K.</div><div class="test-loc">Garland · Pier & Beam</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="areas-section">
+  <div class="section-inner">
+    <div style="text-align: center;">
+      <div class="section-eyebrow" style="justify-content: center;">Where We Work</div>
+      <h2 class="section-title" style="margin: 0 auto;">Serving all of <span class="italic">DFW & North Texas</span></h2>
+    </div>
+    <div class="areas-grid">
+      <div class="area-pill">Dallas</div><div class="area-pill">Fort Worth</div><div class="area-pill">Plano</div>
+      <div class="area-pill">Frisco</div><div class="area-pill">Arlington</div><div class="area-pill">Irving</div>
+      <div class="area-pill">McKinney</div><div class="area-pill">Garland</div><div class="area-pill">Mesquite</div>
+      <div class="area-pill">Carrollton</div><div class="area-pill">Richardson</div><div class="area-pill">Denton</div>
+      <div class="area-pill">Allen</div><div class="area-pill">Lewisville</div><div class="area-pill">Grapevine</div>
+      <div class="area-pill">Flower Mound</div><div class="area-pill">Rockwall</div><div class="area-pill">Rowlett</div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section" id="contact">
+  <div class="section-inner">
+    <div class="cta-eyebrow">⚡ FREE $349 INSPECTION · NO PRESSURE</div>
+    <h2 class="cta-title">Don't wait until<br>it gets <span class="italic">worse.</span></h2>
+    <p class="cta-sub">A small crack today is a $40,000 problem next year. Get a free inspection from DFW's most trusted foundation experts — we'll tell you the truth, not the sales pitch.</p>
+    <div class="cta-btns">
+      <a href="tel:2148532113" class="btn btn-primary">📞 (214) 853-2113</a>
+      <a href="mailto:info@tfcdallas.com" class="btn btn-secondary">Email Us →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="logo" style="color: var(--cream);">
+        <div class="logo-mark"><span>TFC</span></div>
+        <div class="logo-text" style="color: var(--cream);">The Foundation Company<span class="sub">Dallas · Fort Worth · Since 2001</span></div>
+      </div>
+      <p>DFW's most trusted name in foundation repair. Licensed, insured, and proud to be locally owned in Dallas, Texas since 2001.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <a href="#services">Foundation Repair</a><a href="#services">Pier Systems</a><a href="#services">Drainage</a><a href="#services">Tunneling</a><a href="#services">Retaining Walls</a><a href="#services">Root Barriers</a>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="#why">About Us</a><a href="#process">Our Process</a><a href="#reviews">Reviews</a><a href="#contact">Contact</a><a href="#">Free Inspection</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <p>10598 High Hollows Dr<br>Ste 292<br>Dallas, TX 75230</p>
+      <p>Mon–Fri · 8am–6pm</p>
+      <a href="tel:2148532113">(214) 853-2113</a>
+      <a href="mailto:info@tfcdallas.com">info@tfcdallas.com</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 The Foundation Company. All rights reserved.</span>
+    <span>Licensed in the State of Texas · A+ BBB Accredited</span>
+  </div>
+</footer>
+
+<div class="sticky-call">
+  <div class="sticky-call-info">
+    <div class="sticky-call-icon">📞</div>
+    <div class="sticky-call-text">
+      <div class="sticky-call-label">Free Inspection · Call Now</div>
+      <div class="sticky-call-num">(214) 853-2113</div>
+    </div>
+  </div>
+  <a href="tel:2148532113" class="sticky-call-btn">Call</a>
+</div>
+
+<div class="chat-tooltip" id="chatTooltip">
+  <button class="chat-tooltip-close" onclick="document.getElementById('chatTooltip').classList.add('hidden')">×</button>
+  👋 Worried about <strong>cracks or sticking doors?</strong> Chat with us — free advice, instant answers!
+</div>
+
+<button class="chat-fab" id="chatFab" aria-label="Open chat">
+  <span class="chat-fab-badge" id="chatBadge">1</span>
+  <span id="chatFabIcon">💬</span>
+</button>
+
+<div class="chat-window" id="chatWindow">
+  <div class="chat-header">
+    <div class="chat-avatar">T</div>
+    <div>
+      <div class="chat-title">TFC Assistant</div>
+      <div class="chat-status">Online · We respond instantly</div>
+    </div>
+  </div>
+  <div class="chat-body" id="chatBody">
+    <div class="chat-msg bot">👋 Hi there! I'm Sam, the TFC Assistant. Worried about your foundation? Tell me what you're seeing and I can help.</div>
+  </div>
+  <div class="chat-quick" id="chatQuick">
+    <button class="chat-chip" data-msg="I have cracks in my walls">Wall cracks</button>
+    <button class="chat-chip" data-msg="My doors are sticking">Sticking doors</button>
+    <button class="chat-chip" data-msg="My floors are uneven">Uneven floors</button>
+    <button class="chat-chip" data-msg="I need a free inspection">Free inspection</button>
+  </div>
+  <div class="chat-input-row">
+    <input type="text" class="chat-input" id="chatInput" placeholder="Type your message...">
+    <button class="chat-send" id="chatSend">→</button>
+  </div>
+</div>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 60);
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(r => io.observe(r));
+
+  document.querySelectorAll('.cnum').forEach(el => {
+    const t = parseInt(el.dataset.target);
+    const cio = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          const dur = 1800;
+          const start = performance.now();
+          function tick(now) {
+            const p = Math.min((now - start) / dur, 1);
+            const eased = 1 - Math.pow(1 - p, 3);
+            const val = Math.floor(t * eased);
+            el.textContent = val >= 1000 ? val.toLocaleString() : val;
+            if (p < 1) requestAnimationFrame(tick);
+          }
+          requestAnimationFrame(tick);
+          cio.unobserve(el);
+        }
+      });
+    }, { threshold: 0.4 });
+    cio.observe(el);
+  });
+
+  const chatFab = document.getElementById('chatFab');
+  const chatWindow = document.getElementById('chatWindow');
+  const chatTooltip = document.getElementById('chatTooltip');
+  const chatBadge = document.getElementById('chatBadge');
+  const chatFabIcon = document.getElementById('chatFabIcon');
+  const chatBody = document.getElementById('chatBody');
+  const chatInput = document.getElementById('chatInput');
+  const chatSend = document.getElementById('chatSend');
+  const chatQuick = document.getElementById('chatQuick');
+
+  function openChat() {
+    chatWindow.classList.add('open');
+    chatFab.classList.add('open');
+    chatFabIcon.textContent = '×';
+    chatTooltip.classList.add('hidden');
+    if (chatBadge) chatBadge.style.display = 'none';
+  }
+  function closeChat() {
+    chatWindow.classList.remove('open');
+    chatFab.classList.remove('open');
+    chatFabIcon.textContent = '💬';
+  }
+  chatFab.addEventListener('click', () => {
+    if (chatWindow.classList.contains('open')) closeChat();
+    else openChat();
+  });
+
+  function botReply(userText) {
+    const t = userText.toLowerCase();
+    let reply = "I'd love to help! For the most accurate assessment, our free inspection is the best next step. Want me to schedule one for you, or call (214) 853-2113 right now?";
+    if (t.includes('crack')) reply = "Cracks are one of the top warning signs 🚨 — especially diagonal ones above doors/windows, or stair-step cracks in brick. We do free inspections ($349 value) where a tech and structural engineer review it. Want me to book one?";
+    else if (t.includes('door') || t.includes('window') || t.includes('stick')) reply = "Sticking doors and windows usually means your foundation has shifted — the frame moved with it. Common in DFW with the clay soil. A free inspection will tell you exactly how much movement and what it'll cost to fix. Want one?";
+    else if (t.includes('floor') || t.includes('uneven') || t.includes('slope') || t.includes('slop')) reply = "Uneven floors are a serious sign — drop a marble, see if it rolls. If yes, you're looking at active foundation movement. The good news: we can level it permanently with engineered piers + lifetime warranty. Schedule a free inspection?";
+    else if (t.includes('inspect') || t.includes('estimate') || t.includes('quote')) reply = "Yes! Inspection is 100% FREE ($349 value). Takes about 45 min, includes a written report and structural engineer review. What's your zip code and best phone number? Or call us right now: (214) 853-2113 📞";
+    else if (t.includes('cost') || t.includes('price') || t.includes('how much')) reply = "Foundation repair in DFW typically runs $4K–$15K depending on # of piers needed and method. We give you exact pricing in writing after the free inspection — no surprises, no upsells. Want to schedule?";
+    else if (t.includes('warranty')) reply = "All our pier systems come with a LIFETIME transferable warranty in writing — meaning even if you sell your house, the warranty transfers to the next owner. Big selling point when listing your home 🏡";
+    else if (t.includes('engineer')) reply = "Yes — every single repair plan we make is reviewed and approved by an independent (non-affiliated) structural engineer. Then they come back at the end and verify the work. That's why we can offer the lifetime warranty.";
+    else if (t.includes('how long') || t.includes('time')) reply = "Most residential repairs take 1-3 days. Bigger commercial jobs 5-10 days. We work clean and minimize disruption — your kids and pets can stay home most days. Want to schedule a free inspection?";
+    else if (t.includes('hi') || t.includes('hello') || t.includes('hey')) reply = "Hey there! 👋 What's going on with your foundation? Cracks, sticking doors, uneven floors, or just want a free inspection?";
+    else if (t.includes('plano') || t.includes('frisco') || t.includes('mckinney') || t.includes('arlington') || t.includes('fort worth') || t.includes('dallas') || t.includes('garland') || t.includes('irving')) reply = "Yep, we serve all of DFW including that area! 🚗 Travel is included in your free inspection. What's the issue with your foundation?";
+    return reply;
+  }
+
+  function addMsg(text, sender) {
+    const div = document.createElement('div');
+    div.className = 'chat-msg ' + sender;
+    div.textContent = text;
+    chatBody.appendChild(div);
+    chatBody.scrollTop = chatBody.scrollHeight;
+  }
+
+  function sendMessage(text) {
+    if (!text.trim()) return;
+    addMsg(text, 'user');
+    chatInput.value = '';
+    chatQuick.style.display = 'none';
+    setTimeout(() => {
+      const typing = document.createElement('div');
+      typing.className = 'chat-msg bot';
+      typing.textContent = '...';
+      typing.id = 'typing';
+      chatBody.appendChild(typing);
+      chatBody.scrollTop = chatBody.scrollHeight;
+    }, 350);
+    setTimeout(() => {
+      const t = document.getElementById('typing');
+      if (t) t.remove();
+      addMsg(botReply(text), 'bot');
+    }, 1100);
+  }
+
+  chatSend.addEventListener('click', () => sendMessage(chatInput.value));
+  chatInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') sendMessage(chatInput.value); });
+  document.querySelectorAll('.chat-chip').forEach(chip => {
+    chip.addEventListener('click', () => sendMessage(chip.dataset.msg));
+  });
+
+  document.querySelector('.menu-toggle')?.addEventListener('click', () => {
+    alert('Menu: Warning Signs · Services · Process · Why TFC · Reviews · Free Inspection');
+  });
+
+  // Video mute toggle
+  document.querySelectorAll('.video-mute').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const video = btn.parentElement.querySelector('video');
+      if (video.muted) {
+        // Unmute this one, mute all others
+        document.querySelectorAll('.video-wrapper video').forEach(v => {
+          v.muted = true;
+        });
+        document.querySelectorAll('.video-mute').forEach(b => {
+          b.textContent = '🔇';
+        });
+        video.muted = false;
+        btn.textContent = '🔊';
+      } else {
+        video.muted = true;
+        btn.textContent = '🔇';
+      }
+    });
+  });
+</script>
+</body>
+</html>
